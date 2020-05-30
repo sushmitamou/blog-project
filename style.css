@@ -1,0 +1,121 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+    background: linear-gradient(rgb(143, 3, 101), rgba(95, 148, 247, 0.8)),url('image/blog.jpg') center center no-repeat ;
+    height: 50vh;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    padding-top: 8%;
+}
+.header h1,p{
+    color: #fff;
+}
+.container{
+    width: 90%;
+    justify-content: center;
+    margin-left: 5%;
+
+}
+.card-deck{
+    margin-top: 3%;
+}
+.card-deck .single-card{
+    
+    width: 350px;
+    /* height: 198px; */
+    background: #fff !important;
+    border: 1px solid rgb(224, 224, 224);
+    margin-left: 2%;
+    box-shadow: 0 3px 5px 1px rgb(202, 191, 191) !important;
+    margin-bottom: 3%;
+
+}
+
+.card-deck .single-card .card-title, .card-text{
+    color: #444 !important;
+   
+}
+.card-deck .single-card .card-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* max-width: 170px; */
+    justify-content: center;
+    text-align: center !important;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.read-more button{
+    background: rgb(97, 1, 76);
+    color: #fff !important;
+    padding: 1% 2% !important;
+    border: none !important;
+    text-align: center;
+    width: 100% !important;
+    border-radius: 0%;
+    cursor: pointer;
+}
+.card-deck .single-card .card-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+@media only screen and (max-width: 1024px){
+    .card-deck .single-card{
+        width: 290px;
+        margin-left: 2.3%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .card-deck .single-card{
+        width: 315px;
+        margin-left: 4%;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .header h1{
+        margin-top: 8%;
+        font-size: 24px;
+    }
+    .header p{
+        font-size: 14px;
+    }
+    .card-deck .single-card{
+        width: 355px;
+        margin-left: 5%;
+        margin-top: 3.5%;
+    }
+    .card-deck .single-card .card-title{
+        font-size: 16px;
+    }
+    .card-deck .single-card .card-text{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    .card-deck .single-card{
+        width: 330px;
+        margin-left: 2.4%;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    .card-deck .single-card{
+        width: 280px;
+        margin-left: 2%;
+    }
+    .header h1{
+        margin-top: 8%;
+        font-size: 20px;
+    }
+}
