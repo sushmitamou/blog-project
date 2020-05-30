@@ -1,4 +1,6 @@
 const allCards = document.querySelector('.card-deck');
+const singlePost = document.querySelector('.single-post');
+
 
 let limit = 15;
 let page = 1;
@@ -19,11 +21,12 @@ async function showPosts() {
       cardEl.classList.add('single-card');
       cardEl.innerHTML = `
         <div class="card-body">
+            <div class='number'>${post.id}</div>
             <h5 class="card-title">${post.title}</h2>
             <p class="card-text">${post.body}</p>
 
             <div class="read-more">
-               <button>Read More</button>
+              <button post-id="${post.id}">Read More</button>
             </div>
         </div>
       `;
@@ -35,21 +38,29 @@ async function showPosts() {
   showPosts();
 
 
-//   function SetMaxLength() {
-//     var title = document.querySelector(".card-title");
-//     title.maxLength = 10;
-//  }
+  allCards.addEventListener('click', e => {
+    const clickedEl = e.target;
+  
+    if (clickedEl.tagName === 'BUTTON') {
+      const postId = clickedEl.getAttribute('post-id');
+  
+      singlePagePost(postId);
+      //alert(postId);
+    }
+  });
+  
+  async function singlePagePost(postId) {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+    const data = await res.json();
+    console.log(data);
 
- 
+    allCards.innerHTML = "";
+    allCards.innerHTML = `
+                          <i class="fa fa-arrow-circle-left" onclick="showPosts();"></i>
+                          <h3 class="single-page-title"><strong>${data.title}</strong></h3><br>
+                          <p class="single-page-paragraph">${data.body}<p>
 
-//   <head>
-//     <script type="text/javascript">
-//         function SetMaxLength () {
-//             var input = document.getElementById("myInput");
-//             input.maxLength = 10;
-//         }
-//     </script>
-// </head>
-// <body>
-//     <input id="myInput" type="text" size="20" />
-// </body>
+    `;
+
+    
+  }
